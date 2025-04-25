@@ -1,21 +1,42 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { signIn, useSession } from "next-auth/react";
+
+interface UserProfile {
+  email: string;
+  gender: "Male" | "Female" | "Other";
+  phoneNumber: string;
+  profileImageUrl?: string | null;
+}
+
+interface CreateUserPayload {
+  email: string;
+  gender: "Male" | "Female" | "Other";
+  phoneNumber: string;
+}
+
+interface CreateUserResponse {
+  id: number;
+  email: string;
+  gender: "Male" | "Female" | "Other";
+  phoneNumber: string;
+  profileImageUrl?: string | null;
+}
 
 function Left() {
   const [profileImage, setProfileImage] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<UserProfile>({
     email: "",
     gender: "Male",
-    phone: "",
+    phoneNumber: "",
   });
   const [userId, setUserId] = useState<number | null>(null); // Initially no user selected
   const [isCreatingNewUser, setIsCreatingNewUser] = useState(false);
-  const [newUserFormData, setNewUserFormData] = useState({
+  const [newUserFormData, setNewUserFormData] = useState<CreateUserPayload>({
     email: "",
     gender: "Male",
-    phone: "",
+    phoneNumber: "",
   });
   const { data: session } = useSession();
 
@@ -25,24 +46,25 @@ function Left() {
       if (currentUserId) {
         setUserId(currentUserId); // Store the session ID
         try {
-          const response = await axios.get(`http://localhost:5242/api/User/${currentUserId}`);
+          const response = await axios.get<UserProfile>(`http://localhost:5242/api/User/${currentUserId}`);
           const userData = response.data;
           setFormData({
             email: userData.email || "",
             gender: userData.gender || "Male",
-            phone: userData.phoneNumber || "",
+            phoneNumber: userData.phoneNumber || "",
+            profileImageUrl: userData.profileImageUrl,
           });
           setProfileImage(userData.profileImageUrl || "/default-avatar.png");
           setIsCreatingNewUser(false); // If we fetch a user, we are not creating a new one
         } catch (error: any) {
-          console.error("Error fetching user profile:", error.message);
+          console.error("Error fetching user profile:", (error as AxiosError).message);
           // Optionally handle the error state, e.g., display a message to the user
-          setFormData({ email: "", gender: "Male", phone: "" }); // Reset form on error
+          setFormData({ email: "", gender: "Male", phoneNumber: "" }); // Reset form on error
           setProfileImage(null);
         }
       } else {
         // If no userId in session, reset the form
-        setFormData({ email: "", gender: "Male", phone: "" });
+        setFormData({ email: "", gender: "Male", phoneNumber: "" });
         setProfileImage(null);
       }
     };
@@ -50,31 +72,35 @@ function Left() {
     fetchUserProfile();
   }, [session]); // Fetch profile when session changes
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleNewUserChange = (e: any) => {
+  const handleNewUserChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setNewUserFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleImageChange = async (e: any) => {
-    const file = e.target.files[0];
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file && userId) {
       setProfileImage(URL.createObjectURL(file));
       const formData = new FormData();
       formData.append("file", file);
       try {
-        const response = await axios.post(`http://localhost:5242/api/User/${userId}/image`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const response = await axios.post<{ profileImageUrl: string }>(
+          `http://localhost:5242/api/User/${userId}/image`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
         setProfileImage(response.data.profileImageUrl); // Update with the server URL
       } catch (error: any) {
-        console.error("Error uploading image:", error.message);
+        console.error("Error uploading image:", (error as AxiosError).message);
         // Optionally handle the error state
       }
     } else if (file && !userId) {
@@ -88,12 +114,12 @@ function Left() {
         await axios.put(`http://localhost:5242/api/user/${userId}`, {
           email: formData.email,
           gender: formData.gender,
-          phoneNumber: formData.phone,
+          phoneNumber: formData.phoneNumber,
         });
         console.log("Profile updated successfully!");
         // Optionally provide user feedback (e.g., a success message)
       } catch (error: any) {
-        console.error("Error updating profile:", error.message);
+        console.error("Error updating profile:", (error as AxiosError).message);
         // Optionally handle the error state
       }
     } else {
@@ -103,20 +129,16 @@ function Left() {
 
   const handleCreateNewUser = async () => {
     try {
-      const response = await axios.post("http://localhost:5242/api/user", {
-        email: newUserFormData.email,
-        gender: newUserFormData.gender,
-        phoneNumber: newUserFormData.phone,
-      });
+      const response = await axios.post<CreateUserResponse>("http://localhost:5242/api/user", newUserFormData);
       console.log("New user created successfully:", response.data);
-  
+
       const newUserId = response.data.id;
-  
+
       const signInResult = await signIn("credentials", {
         redirect: false,
         userId: newUserId.toString(),
       });
-  
+
       if (signInResult?.error) {
         console.error("Error signing in:", signInResult.error);
         alert("Sign-in failed. Please check your credentials.");
@@ -125,7 +147,7 @@ function Left() {
         setUserId(newUserId);
       }
     } catch (error: any) {
-      console.error("Error creating new user:", error.message);
+      console.error("Error creating new user:", (error as AxiosError).message);
       alert("Failed to create a new user. Please try again.");
     }
   };
@@ -133,7 +155,7 @@ function Left() {
   const toggleCreateNewUser = () => {
     setIsCreatingNewUser(!isCreatingNewUser);
     setUserId(session?.user?.id || null); // Reset to current session user or null
-    setFormData({ email: "", gender: "Male", phone: "" }); // Reset the update form
+    setFormData({ email: "", gender: "Male", phoneNumber: "" }); // Reset the update form
     setProfileImage(null);
   };
 
@@ -180,7 +202,7 @@ function Left() {
             type="tel"
             id="new-phone"
             name="phone"
-            value={newUserFormData.phone}
+            value={newUserFormData.phoneNumber}
             onChange={handleNewUserChange}
             className="border rounded px-3 py-2"
           />
@@ -251,7 +273,7 @@ function Left() {
               type="tel"
               id="phone"
               name="phone"
-              value={formData.phone}
+              value={formData.phoneNumber}
               onChange={handleChange}
               className="border rounded px-3 py-2"
             />

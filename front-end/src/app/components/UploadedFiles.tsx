@@ -1,12 +1,22 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+
+interface FileData {
+  id: number;
+  fileName: string;
+  fileType: string;
+  fileUrl: string;
+  uploadedAt: string;
+}
+
+interface DeleteResponse {
+  message?: string;
+}
 
 function UploadedFiles() {
-  const [files, setFiles] = useState<
-    { id: number; fileName: string; fileType: string; fileUrl: string; uploadedAt: string }[]
-  >([]);
+  const [files, setFiles] = useState<FileData[]>([]);
   const { data: session } = useSession();
   const [userId, setUserId] = useState<number | null>(null);
 
@@ -19,12 +29,12 @@ function UploadedFiles() {
 
   const fetchUploadedFiles = async (userId: number) => {
     try {
-      const response = await axios.get(
+      const response = await axios.get<FileData[]>(
         `http://localhost:5242/api/file/user/${userId}`
       );
       setFiles(response.data);
     } catch (error: any) {
-      console.error("Error fetching uploaded files:", error.message);
+      console.error("Error fetching uploaded files:", (error as AxiosError).message);
       alert("Failed to load uploaded files.");
     }
   };
@@ -34,7 +44,7 @@ function UploadedFiles() {
   const handleDelete = async (id: number) => {
     if (confirm("Delete this file?")) {
       try {
-        const response = await axios.delete(`http://localhost:5242/api/file/${id}`);
+        const response = await axios.delete<DeleteResponse>(`http://localhost:5242/api/file/${id}`);
         if (response.data?.message === "File deleted successfully") {
           setFiles((prev) => prev.filter((f) => f.id !== id));
           alert("File deleted successfully!");
@@ -42,7 +52,7 @@ function UploadedFiles() {
           alert("Failed to delete the file.");
         }
       } catch (error: any) {
-        console.error("Error deleting file:", error.message);
+        console.error("Error deleting file:", (error as AxiosError).message);
         alert("Failed to delete the file.");
       }
     }

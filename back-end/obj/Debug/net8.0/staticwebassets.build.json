@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "FN3viiAQF5UB+e8CNYcvCYTyeWCGv4nL4NyDQlHDpRY=",
+  "Source": "back-end",
+  "BasePath": "_content/back-end",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "back-end\\wwwroot",
+      "Source": "back-end",
+      "ContentRoot": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\",
+      "BasePath": "_content/back-end",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "SourceId": "back-end",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\",
+      "BasePath": "_content/back-end",
+      "RelativePath": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "467flhrynn",
+      "Integrity": "DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.467flhrynn.pdf",
+      "AssetFile": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 09:06:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "467flhrynn"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "AssetFile": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 09:06:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="
+        }
+      ]
+    }
+  ]
+}

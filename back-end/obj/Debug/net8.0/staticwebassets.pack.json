@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Programming\\Web Development\\Assignment\\HFiles\\back-end\\wwwroot\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "PackagePath": "staticwebassets\\uploads\\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.back-end.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.back-end.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.back-end.props",
+      "PackagePath": "build\\back-end.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.back-end.props",
+      "PackagePath": "buildMultiTargeting\\back-end.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.back-end.props",
+      "PackagePath": "buildTransitive\\back-end.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.467flhrynn.pdf",
+      "AssetFile": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 09:06:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "467flhrynn"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "AssetFile": "uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 09:06:17 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="
+        }
+      ]
+    }
+  ]
+}

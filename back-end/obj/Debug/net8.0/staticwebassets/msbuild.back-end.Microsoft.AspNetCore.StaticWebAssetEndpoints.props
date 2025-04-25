@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/back-end/uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.467flhrynn.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"467flhrynn"},{"Name":"integrity","Value":"sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="},{"Name":"label","Value":"_content/back-end/uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"173612"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 09:06:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/back-end/uploads/02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\02e66127-3d10-442f-98d9-432c4d12a1e7-Typhoid Lab Report.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"173612"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022DBtID8IIN7kGye5MVl73We9CKQITbRBUC9fFa4mzM8Q=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 09:06:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

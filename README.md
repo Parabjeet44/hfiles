@@ -12,6 +12,11 @@ Before you begin, ensure you have the following installed on your system:
 * **MySQL Server** (version compatible with `MySql.Data` 8.0.11 and `Pomelo.EntityFrameworkCore.MySql` 8.0.3 as indicated in the `.csproj` file).
 * **(Optional) A database management tool** (e.g., MySQL Workbench).
 
+## 🛠️ Tech Stack Used
+
+* **Frontend:** Next.js (version 15.3.1), React (version 19.0.0), Tailwind CSS (for styling), axios (for HTTP requests), next-auth (for authentication), iron-session (potentially for session management).
+* **Backend:** ASP.NET Core (version 8.0), MySQL Server (for database), Entity Framework Core (likely for ORM).
+
 ## Running the Frontend (Next.js)
 
 1.  **Navigate to the frontend directory:**
